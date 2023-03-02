@@ -25,6 +25,17 @@ Per installare il progetto sono necessari i seguenti requisiti:
 - Una tazza di caffè
 - Un paio di biscotti
 
+### Struttura del database
+![Database](https://gitlab.com/masalafrancesco/PHP-School-Project/-/raw/main/database/gestioneLaboratori.png)
+Il database è strutturato in 7 tabelle:
+- `utenti` - contiene i dati degli utenti
+- `laboratori` - contiene i dati dei laboratori
+- `inventario` - contiene i dati del materiale
+- `utilizzo` - contiene i dati dei movimenti di materiale
+- `prenotazioni` - contiene i dati delle prenotazioni
+- `tecnici` - contiene i dati dei tecnici
+
+
 ### Installazione su Shared Hosting
 Per installare il progetto su un server di hosting condiviso è necessario:
 - Creare un database MySQL
