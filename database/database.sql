@@ -6,6 +6,7 @@ USE `gestioneLaboratori`;
 CREATE TABLE `gestioneLaboratori`.`utenti`
 (
     id_utente INT         NOT NULL AUTO_INCREMENT,
+    isAdmin   BOOLEAN     NOT NULL,
     nome      VARCHAR(50) NOT NULL,
     cognome   VARCHAR(50) NOT NULL,
     email     VARCHAR(50) NOT NULL,
