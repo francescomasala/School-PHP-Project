@@ -1,7 +1,13 @@
 <?php
 
 include '../../snippets/header.php';
+include '../../businessLogic/UserManagement.php';
+
+$um = new DatabaseUser();
+
+
 # Signup code
+
 ?>
     <!-- Main -->
 
