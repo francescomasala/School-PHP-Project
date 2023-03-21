@@ -42,9 +42,17 @@ class UserManagement
         }
     }
 
-    public function loginUser(): bool
+    public function loginUser(string $email, string $password): bool
     {
-        return true;
+        $email = $this->cleanInput($email);
+        $password = password_verify($password, PASSWORD_DEFAULT);
+        $query = "SELECT * FROM utenti WHERE email = '$email' AND password = '$password'";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private function cleanInput(string $input): string
