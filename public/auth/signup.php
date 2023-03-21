@@ -1,6 +1,7 @@
 <?php
 
 include '../../snippets/header.php';
+# Signup code
 ?>
     <!-- Main -->
 
