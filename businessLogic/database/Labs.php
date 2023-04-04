@@ -1,6 +1,6 @@
 <?php
 
-class DatabaseLabs extends DatabaseGeneric
+class Labs extends Generic
 {
     public function addLab(string $numeroAula, string $materia, string $postiDisponibili): bool
     {

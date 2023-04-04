@@ -1,6 +1,6 @@
 <?php
 
-class DatabaseInventory extends DatabaseGeneric
+class Inventory extends Generic
 {
     public function addItemToInventory(string $nome, string $descrizione, string $quantita, string $dataAcquisto, int $numeroAula): bool
     {

@@ -12,8 +12,10 @@ include '../../snippets/header.php';
                 <h2>Accedi al tuo account</h2>
             </hgroup>
             <form>
-                <input type="text" id="login" name="login" placeholder="Username" aria-label="Login" autocomplete="nickname" required>
-                <input type="password" id="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+                <input type="text" id="login" name="login" placeholder="Username" aria-label="Login"
+                       autocomplete="nickname" required>
+                <input type="password" id="password" name="password" placeholder="Password" aria-label="Password"
+                       autocomplete="current-password" required>
                 <fieldset>
                     <label for="remember">
                         <input type="checkbox" role="switch" id="remember" name="remember">

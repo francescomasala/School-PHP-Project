@@ -1,6 +1,6 @@
 <?php
 
-class DatabaseGeneric
+class Generic
 {
     protected $db_host;
     protected $db_user;

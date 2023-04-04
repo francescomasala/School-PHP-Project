@@ -1,6 +1,6 @@
 <?php
 
-class DatabaseUser extends DatabaseGeneric
+class User extends Generic
 {
     public function registerUser(string $name, string $surname, string $email, string $password): bool
     {

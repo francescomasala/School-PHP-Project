@@ -1,12 +1,14 @@
 <?php
+
+use webParticle\Sections;
+
 include '../businessLogic/Main.php';
-include '../snippets/header.php';
 
 $test = new Test();
 ?>
 <div class="hero">
     <?php
-    include '../snippets/navbarUnlogged.php';
+    return (new webParticle\Sections)->callHeader();
     ?>
     <center>
         <header class="container">
