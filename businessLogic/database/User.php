@@ -94,4 +94,16 @@ class User extends Generic
         }
     }
 
+    public function getUser(mixed $user)
+    {
+        $user = $this->cleanInput($user);
+        $query = "SELECT * FROM utenti WHERE email = '$user'";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            return mysqli_fetch_object($result);
+        }
+    }
+
 }
