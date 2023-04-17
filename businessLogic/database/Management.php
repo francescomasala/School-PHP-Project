@@ -3,5 +3,4 @@
 class Management extends Generic
 {
 
-
 }

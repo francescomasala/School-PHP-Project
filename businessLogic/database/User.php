@@ -106,4 +106,58 @@ class User extends Generic
         }
     }
 
+    public function getAllUsers()
+    {
+        $query = "SELECT * FROM utenti";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+    }
+
+    public function getAllAdmins()
+    {
+        $query = "SELECT * FROM utenti WHERE isAdmin = 1";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+    }
+
+    public function getAllUsersExceptAdmins()
+    {
+        $query = "SELECT * FROM utenti WHERE isAdmin = 0";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+    }
+
+    public function exportToCSV()
+    {
+        $query = "SELECT * FROM utenti";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $file = fopen('users.csv', 'w');
+            fputcsv($file, array('Nome', 'Cognome', 'Email', 'Password', 'isAdmin'));
+            foreach ($users as $user) {
+                fputcsv($file, $user);
+            }
+            fclose($file);
+            header('Content-Type: application/csv');
+            header('Content-Disposition: attachment; filename=users.csv');
+            readfile('users.csv');
+            exit;
+        }
+    }
+
 }

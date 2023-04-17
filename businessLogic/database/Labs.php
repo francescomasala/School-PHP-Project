@@ -107,4 +107,24 @@ class Labs extends Generic
             return mysqli_fetch_assoc($result)['postiDisponibili'];
         }
     }
+    public function exportToCSV()
+    {
+        $query = "SELECT * FROM laboratori";
+        $result = mysqli_query($this->db_conn, $query);
+        if (!$result) {
+            return false;
+        } else {
+            $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $file = fopen('labs.csv', 'w');
+            fputcsv($file, array('numero_aula', 'materia', 'postiDisponibili'));
+            foreach ($users as $user) {
+                fputcsv($file, $user);
+            }
+            fclose($file);
+            header('Content-Type: application/csv');
+            header('Content-Disposition: attachment; filename=users.csv');
+            readfile('labs.csv');
+            exit;
+        }
+    }
 }

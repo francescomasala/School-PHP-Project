@@ -2,11 +2,11 @@
 
 class Generic
 {
-    protected $db_host;
-    protected $db_user;
-    protected $db_pass;
-    protected $db_name;
-    protected $db_conn;
+    protected string $db_host;
+    protected string $db_user;
+    protected string $db_pass;
+    protected string $db_name;
+    protected mysqli|false $db_conn;
 
     public function __construct()
     {
