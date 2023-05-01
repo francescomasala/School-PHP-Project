@@ -1,6 +1,4 @@
 <?php
-
-namespace utils;
 class Generators
 {
     public static function generateUUID(): string
@@ -46,6 +44,21 @@ class Generators
         }
         return $randomString;
     }
+    public static function cleanInput(string $input): string
+    {
+        return ucwords(strtolower(trim(addslashes($input))));
+    }
+
+    public static function cleanInputEmail(string $input): string
+    {
+        return strtolower(trim(addslashes($input)));
+    }
+
+    public static function generateHash(string $input): string
+    {
+        return hash('sha256',$input);
+    }
+
 
 
 }

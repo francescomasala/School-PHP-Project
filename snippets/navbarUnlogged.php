@@ -4,7 +4,7 @@
     </a>
 
     <div class="col-md-3 text-end">
-        <a href="/login" class="btn btn-outline-primary me-2">Login</a>
-        <a href="/register" class="btn btn-primary">Registrati</a>
+        <a href="/auth/signin.php" class="btn btn-outline-primary me-2">Login</a>
+        <a href="/auth/signup.php" class="btn btn-primary">Registrati</a>
     </div>
 </header>
