@@ -1,0 +1,12 @@
+Hope you enjoy your new logo, here are the people that made your beautiful logo happen :)
+font name: OverpassMono-Regular
+font link: https://fonts.google.com/specimen/Overpass+Mono
+font author: Delve Withrington
+font author site: https://www.delvefonts.com/
+
+
+icon designer: Alfredo @ IconsAlfredo.us
+icon designer link: /AlfredoCreates
+        
+{"bg":"#E9EEEE","icon-gradient-0":"#D0E90D","icon-gradient-1":"#1536F1","font":"#283543","slogan":"#3c4957"}
+      
