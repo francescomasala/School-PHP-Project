@@ -2,7 +2,7 @@
 
 $db_host = 'localhost';
 $db_user = 'root';
-$db_pass = 'fM_270202';
+$db_pass = '';
 $db_name = 'gestioneLaboratori';
 global $db_conn;
 
