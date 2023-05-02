@@ -18,15 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $quantita = $_POST['quantita'];
     $dataAcquisto = $_POST['data_acquisto'];
     $numero_aula = $_POST['numero_aula'];
+    $id_oggetto = Generators::generateUUID();
 
 
-    $query = "INSERT INTO inventario (nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('$nome', '$descrizione', '$quantita', '$dataAcquisto', '$numero_aula');";
+    $query = "INSERT INTO inventario (id_oggetto, nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('$id_oggetto','$nome', '$descrizione', '$quantita', '$dataAcquisto', '$numero_aula');";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
     } else {
         echo "Query Successful.";
-        header('Location: /dashboard/labs/index.php');
+        header('Location: /dashboard/inventory/index.php');
     }
 
 } else {

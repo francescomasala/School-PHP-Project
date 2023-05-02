@@ -20,14 +20,6 @@ if ($_GET['id'] != null){
     } else {
         $row = mysqli_fetch_array($result);
     }
-} else {
-    $query = "SELECT * FROM inventario";
-    $result = mysqli_query($db_conn, $query);
-    if (!$result) {
-        die("Query Failed.");
-    } else {
-        $row = mysqli_fetch_array($result);
-    }
 }
 
 ?>
@@ -41,6 +33,11 @@ if ($_GET['id'] != null){
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
                     <?php
+                    $query = "SELECT * FROM inventario";
+                    $result = mysqli_query($db_conn, $query);
+                    if (!$result) {
+                        die('Query Failed' . mysqli_error($db_conn));
+                    } else {
                         for ($i = 0; $i < mysqli_num_rows($result); $i++) {
                             $row = mysqli_fetch_assoc($result);
                             echo "<div class='card'>";
@@ -54,6 +51,7 @@ if ($_GET['id'] != null){
                             echo "</div>";
                             echo "</div>";
                         }
+                    }
                     ?>
                 </div>
             </div>

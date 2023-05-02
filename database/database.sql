@@ -44,7 +44,7 @@ CREATE TABLE `gestioneLaboratori`.`prenotazioni`
 
 CREATE TABLE `gestioneLaboratori`.`inventario`
 (
-    id_oggetto    VARCHAR(256) NOT NULL,
+    id_oggetto    VARCHAR(36) NOT NULL,
     nome          VARCHAR(50)  NOT NULL,
     descrizione   VARCHAR(256) NOT NULL,
     quantita      INT          NOT NULL,

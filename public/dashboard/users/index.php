@@ -55,6 +55,7 @@ if ($_GET['name'] != null){
                         echo "<a href='remove.php?id=" . $row['id_utente'] . "' class='card-link'>Delete</a>";
                         echo "</div>";
                         echo "</div>";
+                        echo "<br/>";
                     }
                 }
                 ?>

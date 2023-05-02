@@ -30,14 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('Location: /dashboard/labs/index.php');
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $id = $_GET['id'];
-    $query = "SELECT * FROM inventario WHERE id = $id";
+    $query = "SELECT * FROM inventario WHERE id_oggetto = '$id'";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
     } else {
-        echo "Query Successful.";
-    }
-
+        $row = mysqli_fetch_assoc($result);
 ?>
 
 <main class="flex">
@@ -49,20 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
                     <form method="post" enctype="multipart/form-data" action="add.php">
-                        <input type="hidden" id="id" name="id" placeholder="<?= $id ?>">
+                        <input type="hidden" id="id" name="id" placeholder="<?= $row['id_oggetto'] ?>">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $result['nome'] ?>">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $row['nome'] ?>">
                         <label for="descrizione">Descrizione</label>
                         <input type="text" class="form-control" id="descrizione" name="descrizione"
-                               placeholder="<?= $result['descrizione'] ?>">
+                               placeholder="<?= $row['descrizione'] ?>">
                         <label for="quantità">Quantità</label>
-                        <input type="number" class="form-control" id="quantita" name="quantita" placeholder="<?= $result['quantita'] ?>">
+                        <input type="number" class="form-control" id="quantita" name="quantita" placeholder="<?= $row['quantita'] ?>">
                         <label for="data_acquisto">Data Acquisto</label>
                         <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
-                               placeholder="<?= $result['data_acquisto'] ?>">
+                               placeholder="<?= $row['data_acquisto'] ?>">
                         <label for="numero_aula">Numero Aula</label>
                         <input type="text" class="form-control" id="numero_aula" name="numero_aula"
-                               placeholder="<?= $result['numero_aula'] ?>">
+                               placeholder="<?= $row['numero_aula'] ?>">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -71,5 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </main>
 <?php
 include '../../../snippets/footer.php';
+}
 }
 ?>
