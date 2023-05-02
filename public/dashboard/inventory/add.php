@@ -20,15 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $numero_aula = $_POST['numero_aula'];
 
 
-    $query = "INSERT INTO inventario (nome, descrizione, quantità, data_acquisto, numero_aula) VALUES ('$nome', '$descrizione', '$quantità', '$dataAcquisto', '$numero_aula"
+    $query = "INSERT INTO inventario (nome, descrizione, quantità, data_acquisto, numero_aula) VALUES ('$nome', '$descrizione', '$quantità', '$dataAcquisto', '$numero_aula');";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
     } else {
         echo "Query Successful.";
+        header('Location: /dashboard/labs/index.php');
     }
-    header('Location: /dashboard/labs/index.php');
-}
+
+} else {
+
 
 ?>
 
@@ -40,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
-                    <form method="post" enctype="multipart/form-data" action="add.php">
+                    <form method="post" enctype="application/x-www-form-urlencoded" action="add.php">
                         <input type="hidden" id="id" name="id" placeholder="<?= Generators::generateUUID() ?>">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
@@ -63,4 +65,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </main>
 <?php
 include '../../../snippets/footer.php';
+}
 ?>

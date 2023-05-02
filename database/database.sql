@@ -1,10 +1,10 @@
 DROP
-DATABASE IF EXISTS `gestioneLaboratori`;
+    DATABASE IF EXISTS `gestioneLaboratori`;
 CREATE
-DATABASE `gestioneLaboratori` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    DATABASE `gestioneLaboratori` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 USE
-`gestioneLaboratori`;
+    `gestioneLaboratori`;
 
 CREATE TABLE `gestioneLaboratori`.`utenti`
 (
@@ -20,7 +20,7 @@ CREATE TABLE `gestioneLaboratori`.`utenti`
 
 CREATE TABLE `gestioneLaboratori`.`laboratori`
 (
-    numero_aula      INT         NOT NULL AUTO_INCREMENT,
+    numero_aula      VARCHAR(4)  NOT NULL,
     materia          VARCHAR(50) NOT NULL,
     postiDisponibili VARCHAR(50) NOT NULL,
     tecnici          BOOLEAN     NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `gestioneLaboratori`.`prenotazioni`
     id_prenotazione INT         NOT NULL AUTO_INCREMENT,
     id_utente       VARCHAR(36) NOT NULL,
     id_tecnico      VARCHAR(36) NOT NULL,
-    numero_aula     INT         NOT NULL,
+    numero_aula     VARCHAR(4)  NOT NULL,
     data            DATE        NOT NULL,
     ora_inizio      TIME        NOT NULL,
     ora_fine        TIME        NOT NULL,
@@ -44,12 +44,12 @@ CREATE TABLE `gestioneLaboratori`.`prenotazioni`
 
 CREATE TABLE `gestioneLaboratori`.`inventario`
 (
-    id_oggetto    VARCHAR(256) NOT NULL AUTO_INCREMENT,
+    id_oggetto    VARCHAR(256) NOT NULL,
     nome          VARCHAR(50)  NOT NULL,
     descrizione   VARCHAR(256) NOT NULL,
     quantità      INT          NOT NULL,
     data_acquisto DATE         NOT NULL,
-    numero_aula   INT          NOT NULL,
+    numero_aula   VARCHAR(4)   NOT NULL,
     PRIMARY KEY (id_oggetto),
     FOREIGN KEY (numero_aula) REFERENCES laboratori (numero_aula)
 );
@@ -57,7 +57,7 @@ CREATE TABLE `gestioneLaboratori`.`inventario`
 CREATE TABLE `gestioneLaboratori`.`manutenzioni`
 (
     id_manutenzione INT          NOT NULL AUTO_INCREMENT,
-    id_oggetto      INT          NOT NULL,
+    id_oggetto      VARCHAR(256) NOT NULL,
     id_tecnico      VARCHAR(36)  NOT NULL,
     data            DATE         NOT NULL,
     descrizione     VARCHAR(256) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `gestioneLaboratori`.`manutenzioni`
 CREATE TABLE `gestioneLaboratori`.`utilizzo`
 (
     id_utilizzo INT          NOT NULL AUTO_INCREMENT,
-    id_oggetto  INT          NOT NULL,
+    id_oggetto  VARCHAR(256) NOT NULL,
     id_utente   VARCHAR(36)  NOT NULL,
     data        DATE         NOT NULL,
     descrizione VARCHAR(256) NOT NULL,

@@ -17,8 +17,8 @@
                 </button>
                 <div x-show="open" x-transition>
                     <ul class="btn-toggle-nav list-group-item-info fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark link-underline-light link-offset-1">Lista Oggetti</a></li>
-                        <li><a href="#" class="link-dark link-underline-light link-offset-1">Aggiungi Oggetto</a></li>
+                        <li><a href="/dashboard/inventory/index.php" class="link-dark link-underline-light link-offset-1">Lista Oggetti</a></li>
+                        <li><a href="/dashboard/inventory/add.php" class="link-dark link-underline-light link-offset-1">Aggiungi Oggetto</a></li>
                         <li><a href="#" class="link-dark link-underline-light link-offset-1">Esporta Oggetti</a></li>
                     </ul>
                 </div>
@@ -31,8 +31,8 @@
                 </button>
                 <div x-show="open" x-transition>
                     <ul class="btn-toggle-nav list-group-item-info fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark link-underline-light link-offset-1">Lista Laboratori</a></li>
-                        <li><a href="#" class="link-dark link-underline-light link-offset-1">Aggiungi Laboratorio</a></li>
+                        <li><a href="/dashboard/labs/index.php" class="link-dark link-underline-light link-offset-1">Lista Laboratori</a></li>
+                        <li><a href="/dashboard/labs/add.php" class="link-dark link-underline-light link-offset-1">Aggiungi Laboratorio</a></li>
                         <li><a href="#" class="link-dark link-underline-light link-offset-1">Esporta Laboratori</a></li>
                     </ul>
                 </div>
@@ -45,8 +45,8 @@
                 </button>
                 <div x-show="open" x-transition>
                     <ul class="btn-toggle-nav list-group-item-info fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark link-underline-light link-offset-1">Lista Utenti</a></li>
-                        <li><a href="#" class="link-dark link-underline-light link-offset-1">Aggiungi Utente</a></li>
+                        <li><a href="/dashboard/users/index.php" class="link-dark link-underline-light link-offset-1">Lista Utenti</a></li>
+                        <li><a href="/dashboard/users/add.php" class="link-dark link-underline-light link-offset-1">Aggiungi Utente</a></li>
                         <li><a href="#" class="link-dark link-underline-light link-offset-1">Esporta Utenti</a></li>
                     </ul>
                 </div>

@@ -22,12 +22,10 @@ if ($_GET['materia'] != null){
 } else {
     $query = "SELECT * FROM laboratori";
     $result = mysqli_query($db_conn, $query);
-    if (!$result) {
+    if ($result == null) {
         die("Query Failed.");
     } else {
         $row = mysqli_fetch_array($result);
-    }
-}
 ?>
 
 <main class="flex">
@@ -59,4 +57,6 @@ if ($_GET['materia'] != null){
 </main>
 <?php
 include '../../../snippets/footer.php';
+    }
+}
 ?>
