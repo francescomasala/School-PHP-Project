@@ -48,7 +48,7 @@ if ($_GET['id'] != null){
                             echo "<h5 class='card-title'>" . $row['nome'] . "</h5>";
                             echo "<h6 class='card-subtitle mb-2 text-muted'>" . $row['numero_aula'] . "</h6>";
                             echo "<p class='card-text'>" . $row['descrizione'] . "</p>";
-                            echo "<p class='card-text text-muted'>" . "Quantità: " . $row['quantità'] . "</p>";
+                            echo "<p class='card-text text-muted'>" . "Quantità: " . $row['quantita'] . "</p>";
                             echo "<a href='edit.php?id=" . $row['id_oggetto'] . "' class='card-link'>Edit</a>";
                             echo "<a href='remove.php?id=" . $row['id_oggetto'] . "' class='card-link'>Delete</a>";
                             echo "</div>";

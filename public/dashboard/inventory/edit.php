@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="text" class="form-control" id="descrizione" name="descrizione"
                                placeholder="<?= $result['descrizione'] ?>">
                         <label for="quantità">Quantità</label>
-                        <input type="number" class="form-control" id="quantità" name="quantità" placeholder="<?= $result['quantità'] ?>">
+                        <input type="number" class="form-control" id="quantita" name="quantita" placeholder="<?= $result['quantita'] ?>">
                         <label for="data_acquisto">Data Acquisto</label>
                         <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
                                placeholder="<?= $result['data_acquisto'] ?>">

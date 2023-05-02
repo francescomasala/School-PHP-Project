@@ -47,7 +47,7 @@ CREATE TABLE `gestioneLaboratori`.`inventario`
     id_oggetto    VARCHAR(256) NOT NULL,
     nome          VARCHAR(50)  NOT NULL,
     descrizione   VARCHAR(256) NOT NULL,
-    quantità      INT          NOT NULL,
+    quantita      INT          NOT NULL,
     data_acquisto DATE         NOT NULL,
     numero_aula   VARCHAR(4)   NOT NULL,
     PRIMARY KEY (id_oggetto),

@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $descrizione = $_POST['descrizione'];
-    $quantità = $_POST['quantità'];
+    $quantita = $_POST['quantita'];
     $dataAcquisto = $_POST['data_acquisto'];
     $numero_aula = $_POST['numero_aula'];
 
 
-    $query = "INSERT INTO inventario (nome, descrizione, quantità, data_acquisto, numero_aula) VALUES ('$nome', '$descrizione', '$quantità', '$dataAcquisto', '$numero_aula');";
+    $query = "INSERT INTO inventario (nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('$nome', '$descrizione', '$quantita', '$dataAcquisto', '$numero_aula');";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
@@ -49,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <label for="descrizione">Descrizione</label>
                         <input type="text" class="form-control" id="descrizione" name="descrizione"
                                placeholder="Descrizione">
-                        <label for="quantità">Quantità</label>
-                        <input type="number" class="form-control" id="quantità" name="quantità" placeholder="Quantità">
+                        <label for="quantita">Quantità</label>
+                        <input type="number" class="form-control" id="quantita" name="quantita" placeholder="Quantità">
                         <label for="data_acquisto">Data Acquisto</label>
                         <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
                                placeholder="Data Acquisto">
