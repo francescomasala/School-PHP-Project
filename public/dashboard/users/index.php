@@ -10,6 +10,24 @@ session_start();
 if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
+if ($_GET['name'] != null){
+    $nome = $_GET['nome'];
+    $query = "SELECT * FROM utenti WHERE nome = $nome";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
+} else {
+    $query = "SELECT * FROM utenti";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
+}
 
 ?>
 

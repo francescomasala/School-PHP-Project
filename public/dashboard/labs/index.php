@@ -10,7 +10,24 @@ session_start();
 if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
-
+if ($_GET['materia'] != null){
+    $materia = $_GET['materia'];
+    $query = "SELECT * FROM laboratori WHERE materia = $materia";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
+} else {
+    $query = "SELECT * FROM laboratori";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
+}
 ?>
 
 <main class="flex">
@@ -22,11 +39,6 @@ if ($_SESSION['userID'] == null) {
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
                     <?php
-                    $query = "SELECT * FROM laboratori";
-                    $result = mysqli_query($db_conn, $query);
-                    if (!$result) {
-                        die('Query Failed' . mysqli_error($db_conn));
-                    } else {
                         for ($i = 0; $i < mysqli_num_rows($result); $i++) {
                             $row = mysqli_fetch_assoc($result);
                             echo "<div class='card'>";
@@ -40,7 +52,6 @@ if ($_SESSION['userID'] == null) {
                             echo "</div>";
                             echo "</div>";
                         }
-                    }
                     ?>
                 </div>
             </div>
