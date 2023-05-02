@@ -1,4 +1,5 @@
 <?php
+<?php
 include '../../../snippets/header.php';
 ?>
 <!-- Main -->
@@ -12,13 +13,13 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
+   $id = $_POST['id'];
     $materia = $_POST['materia'];
     $numero_aula = $_POST['numero_aula'];
     $tecnici = $_POST['tecnici'];
     $postiDisponibili = $_POST['postiDisponibili'];
 
-    $query = "INSERT INTO laboratori (materia, numero_aula, tecnici, postiDisponibili) VALUES ('$materia', '$numero_aula', '$tecnici', '$postiDisponibili')";
+    $query = "UPDATE laboratori SET materia = '$materia', numero_aula = '$numero_aula', tecnici = '$tecnici', postiDisponibili = '$postiDisponibili' WHERE id = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
@@ -26,7 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Query Successful.";
     }
     header('Location: /dashboard/labs/index.php');
-}
+    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $id = $_GET['id'];
+    $query = "SELECT * FROM inventario WHERE id = $id";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        echo "Query Successful.";
+    }
 
 ?>
 
@@ -59,4 +68,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </main>
 <?php
 include '../../../snippets/footer.php';
+}
 ?>

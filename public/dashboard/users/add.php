@@ -12,13 +12,16 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $materia = $_POST['materia'];
-    $numero_aula = $_POST['numero_aula'];
-    $tecnici = $_POST['tecnici'];
-    $postiDisponibili = $_POST['postiDisponibili'];
+    $userID = $_POST['id'];
+    $isAdmin = $_POST['isAdmin'];
+    $isTecnico = $_POST['isTecnico'];
+    $nome = $_POST['nome'];
+    $cognome = $_POST['cognome'];
+    $email = $_POST['email'];
+    $password = Generators::generateHash($_POST['password']);
 
-    $query = "INSERT INTO laboratori (materia, numero_aula, tecnici, postiDisponibili) VALUES ('$materia', '$numero_aula', '$tecnici', '$postiDisponibili')";
+    $query = "INSERT INTO INSERT INTO utenti (id_utente, isAdmin, isTecnico, nome, cognome, email, password) 
+              VALUES ('$userID', '0', '0', '$nome', '$cognome', '$email', '$password')";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
@@ -40,16 +43,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="flex">
                     <form method="post" action="add.php">
                         <div class="form-group">
-                            <label for="materia">Materia</label>
-                            <input type="text" class="form-control" id="materia" name="materia" placeholder="Materia">
-                            <label for="numero_aula">Numero Aula</label>
-                            <input type="text" class="form-control" id="numero_aula" name="numero_aula"
-                                   placeholder="Numero Aula">
-                            <label for="tecnici">Tecnici</label>
-                            <input type="text" class="form-control" id="tecnici" name="tecnici" placeholder="Tecnici">
-                            <label for="postiDisponibili">Posti Disponibili</label>
-                            <input type="text" class="form-control" id="postiDisponibili" name="postiDisponibili"
-                                   placeholder="Posti Disponibili">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                            <label for="cognome">Cognome</label>
+                            <input type="text" class="form-control" id="cognome" name="cognome"
+                                   placeholder="Cognome">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email"
+                                   placeholder="Email">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password"
+                                   placeholder="Password">
+                            <label for="isAdmin">isAdmin</label>
+                            <input type="checkbox" class="form-control" id="isAdmin" name="isAdmin"
+                                   placeholder="isAdmin">
+                            <label for="isTecnico">isTecnico</label>
+                            <input type="checkbox" class="form-control" id="isTecnico" name="isTecnico"
+                                   placeholder="isTecnico">
+                            <input type="hidden" id="id" name="id" placeholder="<?= Generators::generateUUID() ?>">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
