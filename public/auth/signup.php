@@ -11,21 +11,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cognome = Generators::cleanInput($_POST['cognome']);
     $email = Generators::cleanInput($_POST['email']);
     $password = Generators::generateHash($_POST['password']);
+    $userType = "D";
     $userID = Generators::generateUUID();
     printf($password);
 
-    $query = "INSERT INTO utenti (id_utente, usetType, nome, cognome, email, password) 
-              VALUES ('$userID', 'U', '$nome', '$cognome', '$email', '$password')";
+    $query = "INSERT INTO utenti (id_utente, userType, nome, cognome, email, password) 
+              VALUES ('$userID', '$userType', '$nome', '$cognome', '$email', '$password')";
     $result = mysqli_prepare($db_conn, $query);
 
     if (mysqli_stmt_execute($result)) {
         session_start();
         $_SESSION['userID'] = $userID;
-        $_SESSION['isAdmin'] = 0;
-        $_SESSION['isTecnico'] = 0;
-        $_SESSION['nome'] = $nome;
-        $_SESSION['cognome'] = $cognome;
-        $_SESSION['email'] = $email;
+        $_SESSION['userType'] = $userType;
+        session_commit();
         header("Location: /dashboard/index.php");
     } else {
         ?>

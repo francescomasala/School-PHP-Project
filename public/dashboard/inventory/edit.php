@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
-                    <form method="post" enctype="multipart/form-data" action="add.php">
+                    <form method="post" enctype="multipart/form-data" action="">
                         <input type="hidden" id="id" name="id" placeholder="<?= $row['id_oggetto'] ?>">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $row['nome'] ?>">

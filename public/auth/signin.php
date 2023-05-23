@@ -17,9 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $row = mysqli_fetch_array($result);
 
     if ($row['email'] == $email && $row['password'] == $password)  {
+        session_start();
         $_SESSION['userID'] = $row['id_utente'];
+        $_SESSION['userType'] = $row['userType'];
+        session_commit();
         header("Location: index.php");
-    } elseif ($_SESSION['userID']) {
+    } elseif ($_SESSION['userID'] && $_SESSION['userType']) {
         header("Location: /dashboard/index.php");
         } else {
         ?>

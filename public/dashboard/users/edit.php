@@ -13,15 +13,14 @@ if ($_SESSION['userID'] == null) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userID = $_POST['id'];
-    $isAdmin = $_POST['isAdmin'];
-    $isTecnico = $_POST['isTecnico'];
+    $userType = $_POST['userType'];
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     $email = $_POST['email'];
     $password = Generators::generateHash($_POST['password']);
 
-    $query = "INSERT INTO utenti (id_utente, isAdmin, isTecnico, nome, cognome, email, password) 
-              VALUES ('$userID', '0', '0', '$nome', '$cognome', '$email', '$password')";
+    $query = "INSERT INTO utenti (id_utente, userType, nome, cognome, email, password) 
+              VALUES ('$userID', $userType, '$nome', '$cognome', '$email', '$password')";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
@@ -54,12 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="password">Password</label>
                             <input type="text" class="form-control" id="password" name="password"
                                    placeholder="Password">
-                            <label for="isAdmin">isAdmin</label>
-                            <input type="checkbox" class="form-control" id="isAdmin" name="isAdmin"
-                                   placeholder="isAdmin">
-                            <label for="isTecnico">isTecnico</label>
-                            <input type="checkbox" class="form-control" id="isTecnico" name="isTecnico"
-                                   placeholder="isTecnico">
+                            <label for="userType">Tipo Utente</label>
+                            <select class="form-control" id="userType" name="userType">
+                                <option value="D">Docente</option>
+                                <option value="T">Tecnico</option>
+                                <option value="A">Amministratore</option>
+                            </select>
                             <input type="hidden" id="id" name="id" placeholder="<?= Generators::generateUUID() ?>">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
