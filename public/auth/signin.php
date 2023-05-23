@@ -20,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         $_SESSION['userID'] = $row['id_utente'];
         $_SESSION['userType'] = $row['userType'];
+        $_SESSION['nome'] = $row['nome'];
+        $_SESSION['cognome'] = $row['cognome'];
+        $_SESSION['email'] = $row['email'];
         session_commit();
         header("Location: index.php");
     } elseif ($_SESSION['userID'] && $_SESSION['userType']) {
