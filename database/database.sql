@@ -9,8 +9,7 @@ USE
 CREATE TABLE `gestioneLaboratori`.`utenti`
 (
     id_utente VARCHAR(36)  NOT NULL,
-    isAdmin   BOOLEAN      NOT NULL,
-    isTecnico BOOLEAN      NOT NULL,
+    userType  ENUM('D', 'T', 'A') NOT NULL,
     nome      VARCHAR(50)  NOT NULL,
     cognome   VARCHAR(50)  NOT NULL,
     email     VARCHAR(50)  NOT NULL,
@@ -78,4 +77,5 @@ CREATE TABLE `gestioneLaboratori`.`utilizzo`
     FOREIGN KEY (id_utente) REFERENCES utenti (id_utente)
 );
 
-
+/* Inserimento utente admin con utente: admin e password: password_123 */
+INSERT INTO `gestioneLaboratori`.`utenti` (id_utente, userType, nome, cognome, email, password) VALUES ('1', 'A', 'admin', 'admin', 'admin@admin.ltd','E0E358049BF1F8564D672080DF3F18A4CBE931E55DF7B9439EE1B08165805366');

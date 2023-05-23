@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userID = Generators::generateUUID();
     printf($password);
 
-    $query = "INSERT INTO utenti (id_utente, isAdmin, isTecnico, nome, cognome, email, password) 
-              VALUES ('$userID', '0', '0', '$nome', '$cognome', '$email', '$password')";
+    $query = "INSERT INTO utenti (id_utente, usetType, nome, cognome, email, password) 
+              VALUES ('$userID', 'U', '$nome', '$cognome', '$email', '$password')";
     $result = mysqli_prepare($db_conn, $query);
 
     if (mysqli_stmt_execute($result)) {
