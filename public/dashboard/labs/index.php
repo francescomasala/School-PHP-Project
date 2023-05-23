@@ -19,6 +19,14 @@ if ($_GET['materia'] != null){
     } else {
         $row = mysqli_fetch_array($result);
     }
+} elseif ($_GET['materia'] == null) {
+    $query = "SELECT * FROM laboratori";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
 }
 ?>
 

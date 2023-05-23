@@ -19,7 +19,7 @@ if ($_GET['name'] != null){
     } else {
         $row = mysqli_fetch_array($result);
     }
-} else {
+} elseif ($_GET['nome'] == null) {
     $query = "SELECT * FROM utenti";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

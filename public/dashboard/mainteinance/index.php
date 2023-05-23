@@ -13,10 +13,18 @@ if ($_SESSION['userID'] == null) {
 
 if ($_GET['id'] != null){
     $id = $_GET['id'];
-    $query = "SELECT * FROM inventario WHERE id = $id";
+    $query = "SELECT * FROM manutenzioni WHERE id = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
+} else if ($_GET['id'] == null) {
+    $query = "SELECT * FROM manutenzioni";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die('Query Failed' . mysqli_error($db_conn));
     } else {
         $row = mysqli_fetch_array($result);
     }

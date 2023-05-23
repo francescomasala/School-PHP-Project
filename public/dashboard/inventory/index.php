@@ -20,6 +20,14 @@ if ($_GET['id'] != null){
     } else {
         $row = mysqli_fetch_array($result);
     }
+} elseif ($_GET['id'] == null) {
+    $query = "SELECT * FROM inventario";
+    $result = mysqli_query($db_conn, $query);
+    if (!$result) {
+        die("Query Failed.");
+    } else {
+        $row = mysqli_fetch_array($result);
+    }
 }
 
 ?>
