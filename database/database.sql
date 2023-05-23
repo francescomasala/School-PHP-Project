@@ -78,19 +78,19 @@ CREATE TABLE `gestioneLaboratori`.`utilizzo`
 );
 
 /* Inserimento utente admin con utente: admin e password: password_123 */
-INSERT INTO `gestioneLaboratori`.`utenti` (id_utente, userType, nome, cognome, email, password) VALUES ('1', 'A', 'admin', 'admin', 'admin@admin.ltd','E0E358049BF1F8564D672080DF3F18A4CBE931E55DF7B9439EE1B08165805366');
+INSERT INTO `gestioneLaboratori`.`utenti` (id_utente, userType, nome, cognome, email, password) VALUES ('1', 'A', 'admin', 'admin', 'admin@admin.ltd','e0e358049bf1f8564d672080df3f18a4cbe931e55df7b9439ee1b08165805366');
 
 /* Inserimento Laboratorio */
 INSERT INTO `gestioneLaboratori`.`laboratori` (numero_aula, materia, postiDisponibili, tecnici) VALUES ('A1', 'Chimica', '20', '1');
 
 /* Inserimento Oggetto */
-INSERT INTO `gestioneLaboratori`.`inventario` (id_oggetto, nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('1', 'Bunsen', 'Bunsen per laboratorio di chimica', '10', '2020-01-01', 'A1');
+INSERT INTO `gestioneLaboratori`.`inventario` (id_oggetto, nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('0', 'Bunsen', 'Bunsen per laboratorio di chimica', '10', '2020-01-01', 'A1');
 
 /* Inserimento Manutenzione */
-INSERT INTO `gestioneLaboratori`.`manutenzioni` (id_manutenzione, id_oggetto, id_tecnico, data, descrizione) VALUES ('1', '1', '1', '2020-01-01', 'Manutenzione ordinaria');
+INSERT INTO `gestioneLaboratori`.`manutenzioni` (id_manutenzione, id_oggetto, id_tecnico, data, descrizione) VALUES ('0', '1', '1', '2020-01-01', 'Manutenzione ordinaria');
 
 /* Inserimento Utilizzo */
-INSERT INTO `gestioneLaboratori`.`utilizzo` (id_utilizzo, id_oggetto, id_utente, data, descrizione) VALUES ('1', '1', '1', '2020-01-01', 'Utilizzo per laboratorio di chimica');
+INSERT INTO `gestioneLaboratori`.`utilizzo` (id_utilizzo, id_oggetto, id_utente, data, descrizione) VALUES ('0', '1', '1', '2020-01-01', 'Utilizzo per laboratorio di chimica');
 
 /* Inserimento Prenotazione */
-INSERT INTO `gestioneLaboratori`.`prenotazioni` (id_prenotazione, id_utente, id_tecnico, numero_aula, data, ora_inizio, ora_fine) VALUES ('1', '1', '1', 'A1', '2020-01-01', '10:00:00', '12:00:00');
+INSERT INTO `gestioneLaboratori`.`prenotazioni` (id_prenotazione, id_utente, id_tecnico, numero_aula, data, ora_inizio, ora_fine) VALUES ('0', '1', '1', 'A1', '2020-01-01', '10:00:00', '12:00:00');
