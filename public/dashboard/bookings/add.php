@@ -45,20 +45,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="flex">
                         <form method="post" enctype="application/x-www-form-urlencoded" action="add.php">
                             <input type="hidden" id="id" name="id" placeholder="<?= Generators::generateUUID() ?>">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-                            <label for="descrizione">Descrizione</label>
-                            <input type="text" class="form-control" id="descrizione" name="descrizione"
-                                   placeholder="Descrizione">
-                            <label for="quantita">Quantità</label>
-                            <input type="number" class="form-control" id="quantita" name="quantita"
-                                   placeholder="Quantità">
-                            <label for="data_acquisto">Data Acquisto</label>
-                            <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
-                                   placeholder="Data Acquisto">
+                            <input type="hidden" id="user_id" name="id" placeholder="<?= $_SESSION['userID'] ?>">
                             <label for="numero_aula">Numero Aula</label>
-                            <input type="text" class="form-control" id="numero_aula" name="numero_aula"
-                                   placeholder="Numero Aula">
+                            <input type="text" class="form-control" id="numero_aula" name="numero_aula" placeholder="R34">
+                            <label for="data">Data della prenotazione</label>
+                            <input type="date" class="form-control" id="data" name="data"
+                                   placeholder="11/09/2023">
+                            <label for="ora_inizio">Ora inizio</label>
+                            <input type="time" class="form-control" id="ora_inizio" name="ora_inizio"
+                                   placeholder="7:50:00">
+                            <label for="ora_fine">Ora Fine</label>
+                            <input type="time" class="form-control" id="ora_fine" name="ora_fine"
+                                   placeholder="8:40:00">
+                            <label for="id_tecnico">ID Tecnico</label>
+                            <input type="text" class="form-control" id="id_tecnico" name="id_tecnico"
+                                   placeholder="ec..-...-...">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
