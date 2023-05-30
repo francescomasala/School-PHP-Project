@@ -11,17 +11,17 @@ if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
 
-if ($_GET['id'] != null){
+if (isset($_GET['id'])){
     $id = $_GET['id'];
-    $query = "SELECT * FROM manutenzioni WHERE id = $id";
+    $query = "SELECT * FROM utenti WHERE id_utente = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
     } else {
         $row = mysqli_fetch_array($result);
     }
-} else if ($_GET['id'] == null) {
-    $query = "SELECT * FROM manutenzioni";
+} else if (!isset($_GET['id'])) {
+    $query = "SELECT * FROM utenti";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die('Query Failed' . mysqli_error($db_conn));

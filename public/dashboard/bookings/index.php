@@ -11,16 +11,16 @@ if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
 
-if ($_GET['id'] != null){
+if (isset($_GET['id'])){
     $id = $_GET['id'];
-    $query = "SELECT * FROM prenotazioni WHERE id = $id";
+    $query = "SELECT * FROM prenotazioni WHERE id_prenotazione = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
     } else {
         $row = mysqli_fetch_array($result);
     }
-} else if ($_GET['id'] == null) {
+} else if (!isset($_GET['id'])) {
     $query = "SELECT * FROM prenotazioni";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
@@ -41,7 +41,7 @@ if ($_GET['id'] != null){
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
                     <?php
-                    $query = "SELECT * FROM inventario";
+                    $query = "SELECT * FROM prenotazioni";
                     $result = mysqli_query($db_conn, $query);
                     if (!$result) {
                         die('Query Failed' . mysqli_error($db_conn));
@@ -50,12 +50,12 @@ if ($_GET['id'] != null){
                             $row = mysqli_fetch_assoc($result);
                             echo "<div class='card'>";
                             echo "<div class='card-body'>";
-                            echo "<h5 class='card-title'>" . $row['nome'] . "</h5>";
-                            echo "<h6 class='card-subtitle mb-2 text-muted'>" . $row['numero_aula'] . "</h6>";
-                            echo "<p class='card-text'>" . $row['descrizione'] . "</p>";
-                            echo "<p class='card-text text-muted'>" . "Quantità: " . $row['quantita'] . "</p>";
-                            echo "<a href='edit.php?id=" . $row['id_oggetto'] . "' class='card-link'>Edit</a>";
-                            echo "<a href='remove.php?id=" . $row['id_oggetto'] . "' class='card-link'>Delete</a>";
+                            echo "<h5 class='card-title'>" . $row['numero_aula'] . "</h5>";
+                            echo "<h6 class='card-subtitle mb-2 text-muted'>" . $row['ora_inizio'] . "</h6>";
+                            echo "<p class='card-text'>" . $row['data'] . "</p>";
+                            echo "<p class='card-text text-muted'>" . "Quantità: " . $row['ora_fine'] . "</p>";
+                            echo "<a href='edit.php?id=" . $row['id_prenotazione'] . "' class='card-link'>Edit</a>";
+                            echo "<a href='remove.php?id=" . $row['id_prenotazione'] . "' class='card-link'>Delete</a>";
                             echo "</div>";
                             echo "</div>";
                         }

@@ -10,7 +10,7 @@ session_start();
 if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
-if ($_GET['materia'] != null){
+if (isset($_GET['materia'])){
     $materia = $_GET['materia'];
     $query = "SELECT * FROM laboratori WHERE materia = $materia";
     $result = mysqli_query($db_conn, $query);
@@ -19,7 +19,7 @@ if ($_GET['materia'] != null){
     } else {
         $row = mysqli_fetch_array($result);
     }
-} elseif ($_GET['materia'] == null) {
+} else if (!isset($_GET['materia'])) {
     $query = "SELECT * FROM laboratori";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

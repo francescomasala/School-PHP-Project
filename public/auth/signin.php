@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($row['email'] == $email && $row['password'] == $password)  {
         session_start();
+        error_log("Login riuscito");
         $_SESSION['userID'] = $row['id_utente'];
         $_SESSION['userType'] = $row['userType'];
         $_SESSION['nome'] = $row['nome'];

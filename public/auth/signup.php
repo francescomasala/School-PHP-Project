@@ -21,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_stmt_execute($result)) {
         session_start();
-        $_SESSION['userID'] = $row['id_utente'];
-        $_SESSION['userType'] = $row['userType'];
-        $_SESSION['nome'] = $row['nome'];
-        $_SESSION['cognome'] = $row['cognome'];
-        $_SESSION['email'] = $row['email'];
+        $_SESSION['userID'] = $userID;
+        $_SESSION['userType'] = $userType;
+        $_SESSION['nome'] = $nome;
+        $_SESSION['cognome'] = $cognome;
+        $_SESSION['email'] = $email;
         session_commit();
         header("Location: /dashboard/index.php");
     } else {
