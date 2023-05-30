@@ -53,6 +53,7 @@ if ($_GET['name'] != null) {
                             echo "<div class='card-body'>";
                             echo "<h5 class='card-title'>" . $row['nome'] . "</h5>";
                             echo "<h6 class='card-subtitle mb-2 text-muted'>" . $row['email'] . "</h6>";
+                            echo "<p class='card-text'>" . $row['userType'] . "</p>";
                             echo "<a href='edit.php?id=" . $row['id_utente'] . "' class='card-link'>Edit</a>";
                             echo "<a href='remove.php?id=" . $row['id_utente'] . "' class='card-link'>Delete</a>";
                             echo "</div>";

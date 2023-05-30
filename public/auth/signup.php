@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = Generators::generateHash($_POST['password']);
     $userType = "D";
     $userID = Generators::generateUUID();
-    printf($password);
 
     $query = "INSERT INTO utenti (id_utente, userType, nome, cognome, email, password) 
               VALUES ('$userID', '$userType', '$nome', '$cognome', '$email', '$password')";
