@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($db_conn, $query);
     $row = mysqli_fetch_array($result);
 
-    if ($row['email'] == $email && $row['password'] == $password)  {
+    if ($row['email'] == $email && $row['password'] == $password) {
         session_start();
         error_log("Login riuscito");
         $_SESSION['userID'] = $row['id_utente'];
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php");
     } elseif ($_SESSION['userID'] && $_SESSION['userType']) {
         header("Location: /dashboard/index.php");
-        } else {
+    } else {
         ?>
         <main>
             <div class="alert alert-danger" role="alert">

@@ -11,7 +11,7 @@ if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
 
-if (isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $query = "SELECT * FROM prenotazioni WHERE id_prenotazione = $id";
     $result = mysqli_query($db_conn, $query);

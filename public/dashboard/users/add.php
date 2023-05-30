@@ -45,44 +45,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     }
 
-?>
+    ?>
 
-<main class="flex">
-    <div class="container-fluid">
-        <div class="row">
-            <?php
-            include '../../../snippets/sidebar.php';
-            ?>
-            <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
-                <div class="flex">
-                    <form method="post" action="add.php">
-                        <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $nome ?>">
-                            <label for="cognome">Cognome</label>
-                            <input type="text" class="form-control" id="cognome" name="cognome"
-                                   placeholder="<?= $cognome ?>">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" name="email"
-                                   placeholder="<?= $email ?>">
-                            <label for="password">Password</label>
-                            <input type="text" class="form-control" id="password" name="password"
-                                   placeholder="Nuova Password">
-                            <label for="isAdmin">isAdmin</label>
-                            <input type="checkbox" class="form-control" id="isAdmin" name="isAdmin"
-                                   placeholder="<?= $isAdmin ?>">
-                            <label for="isTecnico">isTecnico</label>
-                            <input type="checkbox" class="form-control" id="isTecnico" name="isTecnico"
-                                   placeholder="<?= $isTecnico ?>">
-                            <input type="hidden" id="id" name="id" placeholder="<?= $userID ?>">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
+    <main class="flex">
+        <div class="container-fluid">
+            <div class="row">
+                <?php
+                include '../../../snippets/sidebar.php';
+                ?>
+                <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
+                    <div class="flex">
+                        <form method="post" action="add.php">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" class="form-control" id="nome" name="nome"
+                                       placeholder="<?= $nome ?>">
+                                <label for="cognome">Cognome</label>
+                                <input type="text" class="form-control" id="cognome" name="cognome"
+                                       placeholder="<?= $cognome ?>">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                       placeholder="<?= $email ?>">
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" id="password" name="password"
+                                       placeholder="Nuova Password">
+                                <label for="isAdmin">isAdmin</label>
+                                <input type="checkbox" class="form-control" id="isAdmin" name="isAdmin"
+                                       placeholder="<?= $isAdmin ?>">
+                                <label for="isTecnico">isTecnico</label>
+                                <input type="checkbox" class="form-control" id="isTecnico" name="isTecnico"
+                                       placeholder="<?= $isTecnico ?>">
+                                <input type="hidden" id="id" name="id" placeholder="<?= $userID ?>">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-</main>
-<?php
-include '../../../snippets/footer.php';
+    </main>
+    <?php
+    include '../../../snippets/footer.php';
 }
 ?>

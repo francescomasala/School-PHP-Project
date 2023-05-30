@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Query Successful.";
     }
     header('Location: /dashboard/labs/index.php');
-    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+} elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $id = $_GET['id'];
     $query = "SELECT * FROM inventario WHERE id_oggetto = '$id'";
     $result = mysqli_query($db_conn, $query);
@@ -36,39 +36,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Query Failed.");
     } else {
         $row = mysqli_fetch_assoc($result);
-?>
+        ?>
 
-<main class="flex">
-    <div class="container-fluid">
-        <div class="row">
-            <?php
-            include '../../../snippets/sidebar.php';
-            ?>
-            <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
-                <div class="flex">
-                    <form method="post" enctype="multipart/form-data" action="">
-                        <input type="hidden" id="id" name="id" placeholder="<?= $row['id_oggetto'] ?>">
-                        <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="<?= $row['nome'] ?>">
-                        <label for="descrizione">Descrizione</label>
-                        <input type="text" class="form-control" id="descrizione" name="descrizione"
-                               placeholder="<?= $row['descrizione'] ?>">
-                        <label for="quantità">Quantità</label>
-                        <input type="number" class="form-control" id="quantita" name="quantita" placeholder="<?= $row['quantita'] ?>">
-                        <label for="data_acquisto">Data Acquisto</label>
-                        <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
-                               placeholder="<?= $row['data_acquisto'] ?>">
-                        <label for="numero_aula">Numero Aula</label>
-                        <input type="text" class="form-control" id="numero_aula" name="numero_aula"
-                               placeholder="<?= $row['numero_aula'] ?>">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+        <main class="flex">
+            <div class="container-fluid">
+                <div class="row">
+                    <?php
+                    include '../../../snippets/sidebar.php';
+                    ?>
+                    <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
+                        <div class="flex">
+                            <form method="post" enctype="multipart/form-data" action="">
+                                <input type="hidden" id="id" name="id" placeholder="<?= $row['id_oggetto'] ?>">
+                                <label for="nome">Nome</label>
+                                <input type="text" class="form-control" id="nome" name="nome"
+                                       placeholder="<?= $row['nome'] ?>">
+                                <label for="descrizione">Descrizione</label>
+                                <input type="text" class="form-control" id="descrizione" name="descrizione"
+                                       placeholder="<?= $row['descrizione'] ?>">
+                                <label for="quantità">Quantità</label>
+                                <input type="number" class="form-control" id="quantita" name="quantita"
+                                       placeholder="<?= $row['quantita'] ?>">
+                                <label for="data_acquisto">Data Acquisto</label>
+                                <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
+                                       placeholder="<?= $row['data_acquisto'] ?>">
+                                <label for="numero_aula">Numero Aula</label>
+                                <input type="text" class="form-control" id="numero_aula" name="numero_aula"
+                                       placeholder="<?= $row['numero_aula'] ?>">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-</main>
-<?php
-include '../../../snippets/footer.php';
-}
+        </main>
+        <?php
+        include '../../../snippets/footer.php';
+    }
 }
 ?>

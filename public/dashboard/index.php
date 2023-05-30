@@ -26,14 +26,14 @@ if ($_SESSION['userID'] == null) {
                                 <center>
                                     <h1>Dashboard</h1>
                                 </center>
-                                <h2> <?= $_SESSION['nome']?> ecco la tua dashboard</h2>
+                                <h2> <?= $_SESSION['nome'] ?> ecco la tua dashboard</h2>
                             </hgroup>
                         </div>
                         <div class="d-flex justify-content-center">
                             <form method="post" enctype="multipart/form-data" action="index.php">
                                 <button type="submit" class="contrast">Logout</button>
                             </form>
-                        <div
+                            <div
                     </article>
                 </div>
             </div>

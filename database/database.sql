@@ -78,7 +78,7 @@ CREATE TABLE `gestioneLaboratori`.`utilizzo`
 );
 
 /* Inserimento utente admin con utente: admin e password: password_123 */
-INSERT INTO `gestioneLaboratori`.`utenti` (id_utente, userType, nome, cognome, email, password) VALUES ('1', 'A', 'admin', 'admin', 'admin@admin.ltd','e0e358049bf1f8564d672080df3f18a4cbe931e55df7b9439ee1b08165805366');
+INSERT INTO `gestioneLaboratori`.`utenti` (id_utente, userType, nome, cognome, email, password) VALUES ('af61b9fe-1280-4f31-805d-7abe8172e01e', 'A', 'admin', 'admin', 'admin@admin.ltd','e0e358049bf1f8564d672080df3f18a4cbe931e55df7b9439ee1b08165805366');
 
 /* Inserimento Laboratorio */
 INSERT INTO `gestioneLaboratori`.`laboratori` (numero_aula, materia, postiDisponibili, tecnici) VALUES ('A1', 'Chimica', '20', '1');

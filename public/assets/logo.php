@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER['QUERY_STRING'] == 'img=default.svg') {
+if ($_SERVER['QUERY_STRING'] == 'img=default.svg') {
     $name = "../../graphics/vector/default.svg";
     $fp = fopen($name, 'rb');
     header('Content-Type: image/svg+xml');

@@ -40,6 +40,8 @@ if (!isset($_GET['id'])) {
             ?>
             <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
                 <div class="flex">
+                    <br>
+                    <br>
                     <?php
                     $query = "SELECT * FROM inventario";
                     $result = mysqli_query($db_conn, $query);

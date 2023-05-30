@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $query = "INSERT INTO laboratori (materia, numero_aula, tecnici, postiDisponibili) VALUES ('$materia', '$numero_aula', '$tecnici', '$postiDisponibili')";
     $result = mysqli_query($db_conn, $query);
-    if ($result!=null) {
+    if ($result != null) {
         echo "Query Okay";
         header('Location: /dashboard/labs/index.php');
     } else {

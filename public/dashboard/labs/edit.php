@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Query Successful.";
     }
     header('Location: /dashboard/labs/index.php');
-    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+} elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $numero_aula = $_GET['id'];
     $query = "SELECT * FROM laboratori WHERE numero_aula = '$numero_aula'";
     $result = mysqli_query($db_conn, $query);
@@ -34,36 +34,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $row = mysqli_fetch_assoc($result);
 
-?>
+        ?>
 
-<main class="flex">
-    <div class="container-fluid">
-        <div class="row">
-            <?php
-            include '../../../snippets/sidebar.php';
-            ?>
-            <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
-                <div class="flex">
-                    <form method="post" action="edit.php" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="materia">Materia</label>
-                            <input type="text" class="form-control" id="materia" name="materia" placeholder="<?= $row['materia'] ?>">
-                            <label for="numero_aula">Numero Aula</label>
-                            <input type="text" class="form-control" id="numero_aula" name="numero_aula"
-                                   placeholder="<?= $row['numero_aula'] ?>">
-                            <label for="tecnici">Tecnici</label>
-                            <input type="text" class="form-control" id="tecnici" name="tecnici" placeholder="<?= $row['tecnici'] ?>">
-                            <label for="postiDisponibili">Posti Disponibili</label>
-                            <input type="text" class="form-control" id="postiDisponibili" name="postiDisponibili"
-                                   placeholder="<?= $row['postiDisponibili'] ?>">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+        <main class="flex">
+            <div class="container-fluid">
+                <div class="row">
+                    <?php
+                    include '../../../snippets/sidebar.php';
+                    ?>
+                    <div class="d-flex justify-content-center col-sm p-3 min-vh-100">
+                        <div class="flex">
+                            <form method="post" action="edit.php" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="materia">Materia</label>
+                                    <input type="text" class="form-control" id="materia" name="materia"
+                                           placeholder="<?= $row['materia'] ?>">
+                                    <label for="numero_aula">Numero Aula</label>
+                                    <input type="text" class="form-control" id="numero_aula" name="numero_aula"
+                                           placeholder="<?= $row['numero_aula'] ?>">
+                                    <label for="tecnici">Tecnici</label>
+                                    <input type="text" class="form-control" id="tecnici" name="tecnici"
+                                           placeholder="<?= $row['tecnici'] ?>">
+                                    <label for="postiDisponibili">Posti Disponibili</label>
+                                    <input type="text" class="form-control" id="postiDisponibili"
+                                           name="postiDisponibili"
+                                           placeholder="<?= $row['postiDisponibili'] ?>">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-</main>
-<?php
-include '../../../snippets/footer.php';
-}}
+        </main>
+        <?php
+        include '../../../snippets/footer.php';
+    }
+}
 ?>
