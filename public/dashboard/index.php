@@ -30,7 +30,7 @@ if ($_SESSION['userID'] == null) {
                             </hgroup>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <form method="post" enctype="multipart/form-data" action="index.php">
+                            <form method="get" enctype="multipart/form-data" action="/auth/logoff.php">
                                 <button type="submit" class="contrast">Logout</button>
                             </form>
                             <div

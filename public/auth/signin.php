@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($db_conn, $query);
     $row = mysqli_fetch_array($result);
 
-    if ($row['email'] == $email && $row['password'] == $password) {
+    if (isset($_POST['email']) && isset($_POST['password']) && $row['email'] == $email && $row['password'] == $password) {
         session_start();
         $_SESSION['userID'] = $row['id_utente'];
         $_SESSION['userType'] = $row['userType'];
