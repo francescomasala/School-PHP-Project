@@ -11,6 +11,10 @@ if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
 
+if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
+    header("Location: /dashboard/users/error.php");
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userID = $_POST['id'];
     $userType = $_POST['userType'];

@@ -6,6 +6,10 @@ if ($_SESSION['userID'] == null) {
 }
 include '../../../businessLogic/db/Connector.php';
 
+if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
+    header("Location: /dashboard/labs/error.php");
+}
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $query = "DELETE FROM laboratori WHERE numero_aula = '$id'";
