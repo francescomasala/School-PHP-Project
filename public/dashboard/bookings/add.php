@@ -12,16 +12,17 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $nome = $_POST['nome'];
-    $descrizione = $_POST['descrizione'];
-    $quantita = $_POST['quantita'];
-    $dataAcquisto = $_POST['data_acquisto'];
+    $id = $_POST['id_prenotazione'];
+    $id_utente = $_POST['id_utente'];
+    $id_tecnico = $_POST['id_tecnico'];
     $numero_aula = $_POST['numero_aula'];
+    $data = $_POST['data'];
+    $ora_inizio = $_POST['ora_inizio'];
+    $ora_fine = $_POST['ora_fine'];
     $id_oggetto = Generators::generateUUID();
 
 
-    $query = "INSERT INTO inventario (id_oggetto, nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('$id_oggetto','$nome', '$descrizione', '$quantita', '$dataAcquisto', '$numero_aula');";
+    $query = "INSERT INTO prenotazioni (id_prenotazione, id_utente, id_tecnico, numero_aula, data, ora_inizio, ora_fine) VALUES ('$id','$id_utente', '$id_tecnico', '$numero_aula', '$data', '$ora_inizio', '$ora_fine');";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");

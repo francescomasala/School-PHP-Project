@@ -8,7 +8,7 @@ include '../../../businessLogic/db/Connector.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $query = "DELETE FROM inventario WHERE id_oggetto = '$id'";
+    $query = "DELETE FROM prenotazioni WHERE id_prenotazione = '$id'";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");

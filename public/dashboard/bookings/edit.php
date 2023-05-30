@@ -12,15 +12,16 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $nome = $_POST['nome'];
-    $descrizione = $_POST['descrizione'];
-    $quantità = $_POST['quantità'];
-    $dataAcquisto = $_POST['data_acquisto'];
+    $id = $_POST['id_prenotazione'];
+    $id_utente = $_POST['id_utente'];
+    $id_tecnico = $_POST['id_tecnico'];
     $numero_aula = $_POST['numero_aula'];
+    $data = $_POST['data'];
+    $ora_inizio = $_POST['ora_inizio'];
+    $ora_fine = $_POST['ora_fine'];
 
 
-    $query = "UPDATE inventario SET nome = '$nome', descrizione = '$descrizione', quantità = '$quantità', data_acquisto = '$dataAcquisto', numero_aula = '$numero_aula' WHERE id = $id";
+    $query = "UPDATE prenotazioni SET data = '$data', ora_fine = '$ora_fine', ora_inizio = '$ora_inizio' ,id_utente = '$id_utente', id_tecnico = '$id_tecnico', numero_aula = '$numero_aula', numero_aula = '$numero_aula' WHERE id_prenotazione = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
