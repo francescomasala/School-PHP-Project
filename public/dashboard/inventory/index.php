@@ -20,7 +20,7 @@ if (!isset($_GET['id'])) {
         $row = mysqli_fetch_array($result);
     }
 } else if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = Generators::cleanInput($_GET['id']);
     $query = "SELECT * FROM inventario WHERE id_oggetto = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

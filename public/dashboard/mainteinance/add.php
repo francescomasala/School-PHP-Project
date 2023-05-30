@@ -12,11 +12,11 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $id_oggetto = $_POST['id_oggetto'];
-    $id_tecnico = $_POST['id_tecnico'];
-    $data = $_POST['data'];
-    $descrizione = $_POST['descrizione'];
+    $id = Generators::cleanInput($_POST['id']);
+    $id_oggetto = Generators::cleanInput($_POST['id_oggetto']);
+    $id_tecnico = Generators::cleanInput($_POST['id_tecnico']);
+    $data = Generators::cleanInput($_POST['data']);
+    $descrizione = Generators::cleanInput($_POST['descrizione']);
 
 
     $query = "INSERT INTO manutenzioni (id_manutenzione, id_oggetto, id_tecnico, data, descrizione) VALUES ('$id','$id_oggetto','$id_tecnico', '$data', '$descrizione');";

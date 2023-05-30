@@ -16,13 +16,13 @@ if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id_prenotazione'];
-    $id_utente = $_POST['id_utente'];
-    $id_tecnico = $_POST['id_tecnico'];
-    $numero_aula = $_POST['numero_aula'];
-    $data = $_POST['data'];
-    $ora_inizio = $_POST['ora_inizio'];
-    $ora_fine = $_POST['ora_fine'];
+    $id = Generators::cleanInput($_POST['id_prenotazione']);
+    $id_utente = Generators::cleanInput($_POST['id_utente']);
+    $id_tecnico = Generators::cleanInput($_POST['id_tecnico']);
+    $numero_aula = Generators::cleanInput($_POST['numero_aula']);
+    $data = Generators::cleanInput($_POST['data']);
+    $ora_inizio = Generators::cleanInput($_POST['ora_inizio']);
+    $ora_fine = Generators::cleanInput($_POST['ora_fine']);
 
 
     $query = "UPDATE prenotazioni SET data = '$data', ora_fine = '$ora_fine', ora_inizio = '$ora_inizio' ,id_utente = '$id_utente', id_tecnico = '$id_tecnico', numero_aula = '$numero_aula', numero_aula = '$numero_aula' WHERE id_prenotazione = $id";

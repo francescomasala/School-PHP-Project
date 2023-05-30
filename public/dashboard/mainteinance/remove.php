@@ -11,7 +11,7 @@ if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = Generators::cleanInput($_GET['id']);
     $query = "DELETE FROM manutenzione WHERE id_manutenzione = '$id'";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

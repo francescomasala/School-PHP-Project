@@ -16,11 +16,11 @@ if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $userID = $_POST['id'];
-    $userType = $_POST['userType'];
-    $nome = $_POST['nome'];
-    $cognome = $_POST['cognome'];
-    $email = $_POST['email'];
+    $userID = Generators::cleanInput($_POST['id']);
+    $userType = Generators::cleanInput($_POST['userType']);
+    $nome = Generators::cleanInput($_POST['nome']);
+    $cognome = Generators::cleanInput($_POST['cognome']);
+    $email = Generators::cleanInputEmail($_POST['email']);
     $password = Generators::generateHash($_POST['password']);
 
     $query = "INSERT INTO utenti (id_utente, userType, nome, cognome, email, password) 

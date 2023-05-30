@@ -12,11 +12,11 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $materia = $_POST['materia'];
-    $numero_aula = $_POST['numero_aula'];
-    $tecnici = $_POST['tecnici'];
-    $postiDisponibili = $_POST['postiDisponibili'];
+    $id = Generators::cleanInput($_POST['id']);
+    $materia = Generators::cleanInput($_POST['materia']);
+    $numero_aula = Generators::cleanInput($_POST['numero_aula']);
+    $tecnici = Generators::cleanInput($_POST['tecnici']);
+    $postiDisponibili = Generators::cleanInput($_POST['postiDisponibili']);
 
     $query = "INSERT INTO laboratori (materia, numero_aula, tecnici, postiDisponibili) VALUES ('$materia', '$numero_aula', '$tecnici', '$postiDisponibili')";
     $result = mysqli_query($db_conn, $query);

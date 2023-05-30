@@ -12,12 +12,12 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $userID = $_POST['id'];
-    $isAdmin = $_POST['isAdmin'];
-    $isTecnico = $_POST['isTecnico'];
-    $nome = $_POST['nome'];
-    $cognome = $_POST['cognome'];
-    $email = $_POST['email'];
+    $userID = Generators::cleanInput($_POST['id']);
+    $isAdmin = Generators::cleanInput($_POST['isAdmin']);
+    $isTecnico = Generators::cleanInput($_POST['isTecnico']);
+    $nome = Generators::cleanInput($_POST['nome']);
+    $cognome = Generators::cleanInput($_POST['cognome']);
+    $email = Generators::cleanInputEmail($_POST['email']);
     $password = Generators::generateHash($_POST['password']);
 
     $query = "UPDATE utenti SET isAdmin = '$isAdmin', isTecnico = '$isTecnico', nome = '$nome', cognome = '$cognome', email = '$email', password = '$password' WHERE id_utente = '$userID'";

@@ -12,12 +12,12 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $nome = $_POST['nome'];
-    $descrizione = $_POST['descrizione'];
-    $quantita = $_POST['quantita'];
-    $dataAcquisto = $_POST['data_acquisto'];
-    $numero_aula = $_POST['numero_aula'];
+    $id = Generators::cleanInput($_POST['id']);
+    $nome = Generators::cleanInput($_POST['nome']);
+    $descrizione = Generators::cleanInput($_POST['descrizione']);
+    $quantita = Generators::cleanInput($_POST['quantita']);
+    $dataAcquisto = Generators::cleanInput($_POST['data_acquisto']);
+    $numero_aula = Generators::cleanInput($_POST['numero_aula']);
     $id_oggetto = Generators::generateUUID();
 
 

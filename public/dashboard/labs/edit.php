@@ -15,10 +15,10 @@ if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $materia = $_POST['materia'];
-    $numero_aula = $_POST['id'];
-    $tecnici = $_POST['tecnici'];
-    $postiDisponibili = $_POST['postiDisponibili'];
+    $materia = Generators::cleanInput($_POST['materia']);
+    $numero_aula = Generators::cleanInput($_POST['id']);
+    $tecnici = Generators::cleanInput($_POST['tecnici']);
+    $postiDisponibili = Generators::cleanInput($_POST['postiDisponibili']);
 
     $query = "UPDATE laboratori SET materia = '$materia', tecnici = '$tecnici', postiDisponibili = '$postiDisponibili' WHERE numero_aula = $numero_aula";
     $result = mysqli_query($db_conn, $query);

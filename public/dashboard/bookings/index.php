@@ -12,7 +12,7 @@ if ($_SESSION['userID'] == null) {
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = Generators::cleanInput($_GET['id']);
     $query = "SELECT * FROM prenotazioni WHERE id_prenotazione = $id";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

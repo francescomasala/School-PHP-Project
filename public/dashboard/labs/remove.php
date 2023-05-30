@@ -11,7 +11,7 @@ if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = Generators::cleanInput($_GET['id']);
     $query = "DELETE FROM laboratori WHERE numero_aula = '$id'";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

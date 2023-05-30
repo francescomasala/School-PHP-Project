@@ -7,6 +7,10 @@ session_start();
 include "../../businessLogic/utils/Generators.php";
 include '../../businessLogic/db/Connector.php';
 
+if (isset($_SESSION['userID'])) {
+    header("Location: /dashboard/index.php");
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = Generators::cleanInput($_POST['email']);
     $password = Generators::generateHash($_POST['password']);
@@ -16,15 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $row = mysqli_fetch_array($result);
 
     if (isset($_POST['email']) && isset($_POST['password']) && $row['email'] == $email && $row['password'] == $password) {
-        session_start();
         $_SESSION['userID'] = $row['id_utente'];
         $_SESSION['userType'] = $row['userType'];
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['cognome'] = $row['cognome'];
         $_SESSION['email'] = $row['email'];
         session_commit();
-        header("Location: /dashboard/index.php");
-    } else if (isset($_SESSION['userID'])) {
         header("Location: /dashboard/index.php");
     } else {
         ?>

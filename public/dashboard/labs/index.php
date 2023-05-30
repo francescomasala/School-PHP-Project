@@ -11,7 +11,7 @@ if ($_SESSION['userID'] == null) {
     header("Location: /auth/signin.php");
 }
 if (isset($_GET['materia'])){
-    $materia = $_GET['materia'];
+    $materia = Generators::cleanInput($_GET['materia']);
     $query = "SELECT * FROM laboratori WHERE materia = $materia";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {

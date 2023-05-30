@@ -16,12 +16,12 @@ if ($_SESSION['userType'] != 'A' || $_SESSION['userType'] != 'T') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
-    $nome = $_POST['nome'];
-    $descrizione = $_POST['descrizione'];
-    $quantità = $_POST['quantità'];
-    $dataAcquisto = $_POST['data_acquisto'];
-    $numero_aula = $_POST['numero_aula'];
+    $id = Generators::cleanInput($_POST['id']);
+    $nome = Generators::cleanInput($_POST['nome']);
+    $descrizione = Generators::cleanInput($_POST['descrizione']);
+    $quantità = Generators::cleanInput($_POST['quantità']);
+    $dataAcquisto = Generators::cleanInput($_POST['data_acquisto']);
+    $numero_aula = Generators::cleanInput($_POST['numero_aula']);
 
 
     $query = "UPDATE manutenzioni SET nome = '$nome', descrizione = '$descrizione', quantità = '$quantità', data_acquisto = '$dataAcquisto', numero_aula = '$numero_aula' WHERE id = $id";

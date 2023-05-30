@@ -12,13 +12,13 @@ if ($_SESSION['userID'] == null) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id_prenotazione'];
-    $id_utente = $_POST['id_utente'];
-    $id_tecnico = $_POST['id_tecnico'];
-    $numero_aula = $_POST['numero_aula'];
-    $data = $_POST['data'];
-    $ora_inizio = $_POST['ora_inizio'];
-    $ora_fine = $_POST['ora_fine'];
+    $id = Generators::cleanInput($_POST['id_prenotazione']);
+    $id_utente = Generators::cleanInput($_POST['id_utente']);
+    $id_tecnico = Generators::cleanInput($_POST['id_tecnico']);
+    $numero_aula = Generators::cleanInput($_POST['numero_aula']);
+    $data = Generators::cleanInput($_POST['data']);
+    $ora_inizio = Generators::cleanInput($_POST['ora_inizio']);
+    $ora_fine = Generators::cleanInput($_POST['ora_fine']);
     $id_oggetto = Generators::generateUUID();
 
 
