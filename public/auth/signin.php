@@ -10,7 +10,6 @@ include '../../businessLogic/db/Connector.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = Generators::cleanInput($_POST['email']);
     $password = Generators::generateHash($_POST['password']);
-    printf($password);
 
     $query = "SELECT * FROM utenti WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($db_conn, $query);
@@ -25,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['cognome'] = $row['cognome'];
         $_SESSION['email'] = $row['email'];
         session_commit();
-        header("Location: index.php");
-    } elseif ($_SESSION['userID'] && $_SESSION['userType']) {
+        header("Location: /dashboard/index.php");
+    } elseif (isset($_SESSION['userID'])) {
         header("Location: /dashboard/index.php");
     } else {
         ?>
