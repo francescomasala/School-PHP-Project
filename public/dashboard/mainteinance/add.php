@@ -13,15 +13,13 @@ if ($_SESSION['userID'] == null) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
-    $nome = $_POST['nome'];
+    $id_oggetto = $_POST['id_oggetto'];
+    $id_tecnico = $_POST['id_tecnico'];
+    $data = $_POST['data'];
     $descrizione = $_POST['descrizione'];
-    $quantita = $_POST['quantita'];
-    $dataAcquisto = $_POST['data_acquisto'];
-    $numero_aula = $_POST['numero_aula'];
-    $id_oggetto = Generators::generateUUID();
 
 
-    $query = "INSERT INTO inventario (id_oggetto, nome, descrizione, quantita, data_acquisto, numero_aula) VALUES ('$id_oggetto','$nome', '$descrizione', '$quantita', '$dataAcquisto', '$numero_aula');";
+    $query = "INSERT INTO manutenzioni (id_manutenzione, id_oggetto, id_tecnico, data, descrizione) VALUES ('$id','$id_oggetto','$id_tecnico', '$data', '$descrizione');";
     $result = mysqli_query($db_conn, $query);
     if (!$result) {
         die("Query Failed.");
@@ -45,20 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="flex">
                         <form method="post" enctype="application/x-www-form-urlencoded" action="add.php">
                             <input type="hidden" id="id" name="id" placeholder="<?= Generators::generateUUID() ?>">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-                            <label for="descrizione">Descrizione</label>
-                            <input type="text" class="form-control" id="descrizione" name="descrizione"
+                            <label for="id_oggetto">ID Oggetto</label>
+                            <input type="text" class="form-control" id="id_oggetto" name="id_oggetto" placeholder="Nome">
+                            <label for="id_tecnico">ID Tecnico</label>
+                            <input type="text" class="form-control" id="id_tecnico" name="id_tecnico"
                                    placeholder="Descrizione">
-                            <label for="quantita">Quantità</label>
-                            <input type="number" class="form-control" id="quantita" name="quantita"
-                                   placeholder="Quantità">
-                            <label for="data_acquisto">Data Acquisto</label>
-                            <input type="date" class="form-control" id="data_acquisto" name="data_acquisto"
-                                   placeholder="Data Acquisto">
-                            <label for="numero_aula">Numero Aula</label>
-                            <input type="text" class="form-control" id="numero_aula" name="numero_aula"
-                                   placeholder="Numero Aula">
+                            <label for="data">Data</label>
+                            <input type="date" class="form-control" id="data" name="data"
+                                   placeholder="11/09/2023">
+                            <label for="descrizione">Descrizione</label>
+                            <input type="date" class="form-control" id="descrizione" name="descrizione"
+                                   placeholder="Questo oggetto è stato riparato per...">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
