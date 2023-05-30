@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['email'] = $row['email'];
         session_commit();
         header("Location: /dashboard/index.php");
-    } elseif (isset($_SESSION['userID'])) {
+    } else if (isset($_SESSION['userID'])) {
         header("Location: /dashboard/index.php");
     } else {
         ?>
